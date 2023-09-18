@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.3 on win32)" generated="20230816 13:15:23.847" rpa="false" schemaversion="4">
+<suite id="s1" name="Validation Loops" source="C:\Users\DIYGUPTA\Robot_Framework\validation_loops.robot">
+<test id="s1-t1" name="Validate URL Content" line="13">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>ifelse</arg>
+<arg>${url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230816 13:15:24.237" level="INFO">Creating Session using : alias=ifelse, url=http://127.0.0.1:5000/books, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230816 13:15:24.237" endtime="20230816 13:15:24.238"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${source}</var>
+<arg>ifelse</arg>
+<arg>${url}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20230816 13:15:24.248" level="INFO">GET Request : url=http://127.0.0.1:5000/books 
+ path_url=/books 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230816 13:15:24.248" level="INFO">GET Response : url=http://127.0.0.1:5000/books 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/2.3.6 Python/3.10.3', 'Date': 'Wed, 16 Aug 2023 07:45:24 GMT', 'Content-Type': 'application/json', 'Content-Length': '1282', 'Connection': 'close'} 
+ body=[
+  {
+    "author": "Diya",
+    "id": 2,
+    "title": "old book"
+  },
+  {
+    "author": "Chetan",
+    "id": 3,
+    "title": "Three mistakes"
+  },
+  {
+    "author": "Monika",
+    "id": 5,
+    "title": "A new book"
+  },
+  {
+    "author": "New Author",
+    "id": 8,
+    "title": "Happiness"
+  },
+  {
+    "author": "New Author",
+    "id": 22,
+    "title": "New Book"
+  },
+  {
+    "author": "New Author",
+    "id": 23,
+    "title": "New Book"
+  },
+  {
+    "author": "New Author",
+    "id": 24,
+    "title": "New Book"
+  },
+  {
+    "author": "New Author",
+    "id": 25,
+    "title": "New Book"
+  },
+  {
+    "author": "New Author",
+    "id": 26,
+    "title": "New Book"
+  },
+  {
+    "author": "Krishna",
+    "id": 28,
+    "title": "Geeta"
+  },
+  {
+    "author": "Swati",
+    "id": 29,
+    "title": "Happiness"
+  },
+  {
+    "author": "Krishna",
+    "id": 30,
+    "title": "Geeta"
+  },
+  {
+    "author": "Kanha",
+    "id": 31,
+    "title": "Geeta"
+  },
+  {
+    "author": "Krishna",
+    "id": 32,
+    "title": "Geeta"
+  },
+  {
+    "author": "DIYA",
+    "id": 33,
+    "title": "ABC"
+  },
+  {
+    "author": "Rama",
+    "id": 34,
+    "title": "Ramayan"
+  },
+  {
+    "author": "Rama",
+    "id": 35,
+    "title": "Ramayan"
+  },
+  {
+    "author": "Rama",
+    "id": 36,
+    "title": "Ramayan"
+  }
+]
+ 
+ </msg>
+<msg timestamp="20230816 13:15:24.249" level="INFO">${source} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230816 13:15:24.238" endtime="20230816 13:15:24.249"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<var>${contains}</var>
+<arg>${source.text}</arg>
+<arg>${expected_text}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<msg timestamp="20230816 13:15:24.253" level="INFO">${contains} = None</msg>
+<status status="PASS" starttime="20230816 13:15:24.249" endtime="20230816 13:15:24.253"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${contains}</arg>
+<arg>Log</arg>
+<arg>The URL contains the expected text.</arg>
+<arg>ELSE</arg>
+<arg>Log</arg>
+<arg>The URL does not contain the expected text.</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Log" library="BuiltIn">
+<arg>The URL does not contain the expected text.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230816 13:15:24.255" level="INFO">The URL does not contain the expected text.</msg>
+<status status="PASS" starttime="20230816 13:15:24.254" endtime="20230816 13:15:24.255"/>
+</kw>
+<status status="PASS" starttime="20230816 13:15:24.254" endtime="20230816 13:15:24.255"/>
+</kw>
+<status status="PASS" starttime="20230816 13:15:24.236" endtime="20230816 13:15:24.255"/>
+</test>
+<status status="PASS" starttime="20230816 13:15:23.849" endtime="20230816 13:15:24.258"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Validation Loops">Validation Loops</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
